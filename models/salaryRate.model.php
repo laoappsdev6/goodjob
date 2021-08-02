@@ -27,6 +27,6 @@ class SalaryRateModel
 
     public function validateSalaryRateName()
     {
-        validateEmpty($this->salaryRateName, "Salary Rate name is empty!");
+        validateEmpty($this->salaryRate, "Salary Rate name is empty!");
     }
 }

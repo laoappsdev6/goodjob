@@ -62,7 +62,7 @@ class DistrictController
     {
         try {
             $db = new DatabaseController();
-            $sql = "select d.id as district_id,d.province_id,p.province 
+            $sql = "select d.id as district_id,district,d.province_id,p.province 
                     from district as d INNER JOIN province as p ON d.province_id = p.id where d.id='$get->id'";
             $data = $db->query($sql);
 
@@ -76,7 +76,7 @@ class DistrictController
     {
         try {
             $db = new DatabaseController();
-            $sql = "select d.id as district_id,d.province_id,p.province 
+            $sql = "select d.id as district_id,district,d.province_id,p.province 
                     from district as d INNER JOIN province as p ON d.province_id = p.id where d.province_id='$get->province_id'";
             $data = $db->query($sql);
 
@@ -90,7 +90,7 @@ class DistrictController
     {
         try {
             $db = new DatabaseController();
-            $sql = "select d.id as district_id,d.province_id,p.province 
+            $sql = "select d.id as district_id,district,d.province_id,p.province 
                     from district as d INNER JOIN province as p ON d.province_id = p.id order by d.id desc";
             $data = $db->query($sql);
             PrintJSON($data, "Data list all of district", 1);
@@ -114,7 +114,7 @@ class DistrictController
 
                 $offset = (($get->page - 1) * $get->limit);
 
-                $sql = "select count(*) as num
+                $sql = "select d.id as district_id,district,d.province_id,p.province 
                         from district as d INNER JOIN province as p ON d.province_id = p.id";
 
                 if (isset($get->keyword) && !empty($get->keyword)) {

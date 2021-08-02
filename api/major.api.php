@@ -4,7 +4,7 @@ require_once "../models/major.model.php";
 
 try {
     Initialization();
-    $m = GetMethod();
+    $method = GetMethod();
 
     $json = json_decode(file_get_contents('php://input'), true);
     $control = new MajorController();

@@ -29,7 +29,7 @@ class SalaryRateController
     {
         try {
             $db = new DatabaseController();
-            $sql = "update salary_rate set salaryRate='$get->SalaryRate' where id='$get->id'";
+            $sql = "update salary_rate set salaryRate='$get->salaryRate' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
                 PrintJSON("", "Update Salary rate successfully", 1);
