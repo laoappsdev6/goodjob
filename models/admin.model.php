@@ -15,7 +15,6 @@ class AdminModel
     public string $email;
 
     public string $newPassword;
-    public string $newRole;
 
     public $page;
     public $limit;

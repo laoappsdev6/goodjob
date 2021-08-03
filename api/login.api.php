@@ -1,5 +1,5 @@
 <?php
-require_once("../controllers/authorize.controller.php");
+require_once("../controllers/authorizeAdmin.controller.php");
 require_once("../models/loginAdmin.model.php");
 
 try {

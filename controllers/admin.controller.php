@@ -91,7 +91,7 @@ class AdminController
     {
         try {
             $db = new DatabaseController();
-            $sql = "select * from admin";
+            $sql = "select * from admin order by id desc";
             $data = $db->query($sql);
             PrintJSON($data, "Data list all of admin", 1);
         } catch (Exception $e) {
