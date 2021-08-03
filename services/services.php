@@ -4,7 +4,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE");
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept,Token,M,Authorization");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept,Token,Method,Authorization");
 
 function PrintJSON($data, $message, $status)
 {
