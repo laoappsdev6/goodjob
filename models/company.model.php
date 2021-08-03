@@ -18,6 +18,9 @@ class CompanyModel
     public string $image;
     public string $status = 'register';
     public bool $isActive = true;
+    public float $lat;
+    public float $lng;
+    public float $alt;
 
     public string $newPassword;
 
