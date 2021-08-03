@@ -10,27 +10,27 @@ try {
     $json = json_decode(file_get_contents('php://input'), true);
     $control = new AdminController();
 
-    if ($m == "addAdmin") {
+    if ($method == "addAdmin") {
         $model = new AdminModel($json);
         $model->validateall();
         $control->addAdmin($model);
-    } else if ($m == "updateAdmin") {
+    } else if ($method == "updateAdmin") {
         $model = new AdminModel($json);
         $model->validateall();
         $control->updateAdmin($model);
-    } else if ($m == "deleteAdmin") {
+    } else if ($method == "deleteAdmin") {
         $model = new AdminModel($json);
         $control->deleteAdmin($model);
-    } else if ($m == "changePassword") {
+    } else if ($method == "changePassword") {
         $model = new AdminModel($json);
         $model->validateNewPassword();
         $control->changePassword($model);
-    } else if ($m == "adminListPage") {
+    } else if ($method == "adminListPage") {
         $model = new AdminModel($json);
         $control->AdminListPage($model);
-    } else if ($m == "adminListAll") {
+    } else if ($method == "adminListAll") {
         $control->AdminListALL();
-    } else if ($m == "getAdmin") {
+    } else if ($method == "getAdmin") {
         $model = new AdminModel($json);
         $control->getAdmin($model);
     } else {
