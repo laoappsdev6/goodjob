@@ -15,12 +15,12 @@ class LoginCompanyController
     public function checkLogin($u)
     {
         $db = new DatabaseController();
-        $sql = "select * from company where companyPhonenumber='$u->phonenumber' and password='$u->password'";
+        $sql = "select * from company where companyPhonenumber='$u->phonenumber' and password='$u->password' and isActive=1 and status='upproved'";
         $name = $db->query($sql);
         if ($name > 0) $row = $name[0];
 
         $sql1 = "select id,companyName,address,district_id,province_id,companyPhonenumber,companyEmail from company
-                where companyPhonenumber='$u->phonenumber' and password='$u->password'";
+                where companyPhonenumber='$u->phonenumber' and password='$u->password' and isActive=1 and status='upproved'";
         $list = $db->query($sql1);
         if ($name > 0) {
             echo json_encode(array(
