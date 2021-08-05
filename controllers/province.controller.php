@@ -29,7 +29,7 @@ class ProvinceController
     {
         try {
             $db = new DatabaseController();
-            $sql = "update Province set province='$get->province' where id='$get->id'";
+            $sql = "update province set province='$get->province' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
                 PrintJSON("", "Update province successfully", 1);
