@@ -15,12 +15,12 @@ class LoginMemberController
     public function checkLogin($u)
     {
         $db = new DatabaseController();
-        $sql = "select * from member where phonenumber='$u->phonenumber' and password='$u->password'";
+        $sql = "select * from member where phonenumber='$u->phonenumber' and password='$u->password' and isActive=1";
         $name = $db->query($sql);
         if ($name > 0) $row = $name[0];
 
         $sql1 = "select id,memberName,memberLastname,memberAddress,district_id,province_id,gender,dob,phonenumber,email from member
-                where phonenumber='$u->phonenumber' and password='$u->password'";
+                where phonenumber='$u->phonenumber' and password='$u->password' and isActive=1";
         $list = $db->query($sql1);
         if ($name > 0) {
             echo json_encode(array(

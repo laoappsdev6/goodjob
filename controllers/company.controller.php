@@ -24,9 +24,9 @@ class CompanyController
             }
 
             $db = new DatabaseController();
-            $sql = "insert into company (companyName,address,district_id,province_id,companyPhonenumber,companyEmail,companyContactInfo,coordinatorPhonenumber,password,image,status,isActive,lat,lng,alt)
+            $sql = "insert into company (companyName,address,district_id,province_id,companyPhonenumber,companyEmail,companyContactInfo,coordinatorPhonenumber,password,image,status,isActive)
                  values ('$get->companyName','$get->address','$get->district_id','$get->province_id','$get->companyPhonenumber','$get->companyEmail','$get->companyContactInfo',
-                 '$get->coordinatorPhonenumber','$get->password','$name_image','$get->status','$get->isActive','$get->lat','$get->lng','$get->alt')";
+                 '$get->coordinatorPhonenumber','$get->password','$name_image','$get->status','$get->isActive')";
             $data = $db->query($sql);
             if ($data) {
                 PrintJSON("", "Add company successfully", 1);
@@ -55,7 +55,7 @@ class CompanyController
             $db = new DatabaseController();
             $sql = "update company set companyName='$get->companyName',district_id='$get->district_id',province_id='$get->province_id',companyPhonenumber='$get->companyPhonenumber',
                     companyEmail='$get->companyEmail', companyContactInfo='$get->companyContactInfo',coordinatorPhonenumber='$get->coordinatorPhonenumber',password='$get->password', 
-                    image='$name_image',lat='$get->lat',lng='$get->lng',alt='$get->alt' where id='$get->id'";
+                    image='$name_image' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
                 PrintJSON("", "Update company successfully", 1);
@@ -86,8 +86,9 @@ class CompanyController
     public function upProveCompany($u)
     {
         try {
+            $userId = $_SESSION['userid'];
             $db = new DatabaseController();
-            $sql = "update company set status='upproved' where id='$u->id'";
+            $sql = "update company set status='upproved',upproveBy='$userId' where id='$u->id'";
             $data = $db->query($sql);
             if ($data) {
                 PrintJSON("", "company id: {$u->id} upprove successfully", 1);
