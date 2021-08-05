@@ -12,6 +12,7 @@ class CompanyController
     public function addCompany($get)
     {
         try {
+            $nowDate = datetime();
 
             if (isset($get->image) && !empty($get->image)) {
                 $type = explode('/', explode(';', $get->image)[0])[1];
@@ -24,9 +25,9 @@ class CompanyController
             }
 
             $db = new DatabaseController();
-            $sql = "insert into company (companyName,address,district_id,province_id,companyPhonenumber,companyEmail,companyContactInfo,coordinatorPhonenumber,password,image,status,isActive)
+            $sql = "insert into company (companyName,address,district_id,province_id,companyPhonenumber,companyEmail,companyContactInfo,coordinatorPhonenumber,password,image,status,isActive,created_at)
                  values ('$get->companyName','$get->address','$get->district_id','$get->province_id','$get->companyPhonenumber','$get->companyEmail','$get->companyContactInfo',
-                 '$get->coordinatorPhonenumber','$get->password','$name_image','$get->status','$get->isActive')";
+                 '$get->coordinatorPhonenumber','$get->password','$name_image','$get->status','$get->isActive','$nowDate')";
             $data = $db->query($sql);
             if ($data) {
                 PrintJSON("", "Add company successfully", 1);

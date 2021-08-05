@@ -12,7 +12,7 @@ class MemberController
     public function addMember($get)
     {
         try {
-
+            $nowDate = datetime();
             if (isset($get->image) && !empty($get->image)) {
                 $type = explode('/', explode(';', $get->image)[0])[1];
                 $p = preg_replace('#^data:image/\w+;base64,#i', '', $get->image);
@@ -24,9 +24,9 @@ class MemberController
             }
 
             $db = new DatabaseController();
-            $sql = "insert into member (memberName,memberLastname,memberAddress,district_id,province_id,gender,dob,phonenumber,email,password,image,status,isActive)
+            $sql = "insert into member (memberName,memberLastname,memberAddress,district_id,province_id,gender,dob,phonenumber,email,password,image,status,isActive,created_at)
                  values ('$get->memberName','$get->memberLastname','$get->memberAddress','$get->district_id','$get->province_id','$get->gender','$get->dob','$get->phonenumber',
-                 '$get->email','$get->password','$name_image','$get->status','$get->isActive')";
+                 '$get->email','$get->password','$name_image','$get->status','$get->isActive','$nowDate')";
             $data = $db->query($sql);
             if ($data) {
                 PrintJSON("", "Add member successfully", 1);
@@ -114,7 +114,7 @@ class MemberController
             PrintJSON("", "$error", 0);
         }
     }
-    public function getmember($u)
+    public function getMember($u)
     {
         try {
             $db = new DatabaseController();

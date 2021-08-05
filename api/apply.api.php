@@ -1,7 +1,7 @@
 <?php
 
-require_once "../controllers/Apply.controller.php";
-require_once "../models/Apply.model.php";
+require_once "../controllers/apply.controller.php";
+require_once "../models/apply.model.php";
 
 try {
     Initialization();
@@ -32,6 +32,18 @@ try {
     } else if ($method == "getApply") {
         $model = new ApplyModel($json);
         $control->getApply($model);
+    } else if ($method == "applyListAllByMember") {
+        $model = (object) $json;
+        $control->applyListAllByMember($model);
+    } else if ($method == "applyListAllByPostJob") {
+        $model = (object) $json;
+        $control->applyListAllByPostJob($model);
+    } else if ($method == "applyListAllByCompany") {
+        $model = (object) $json;
+        $control->applyListAllByCompany($model);
+    } else if ($method == "applyListAllByPostJobDetail") {
+        $model = (object) $json;
+        $control->applyListAllByPostJobDetail($model);
     } else {
         PrintJSON("", "method not found!", 0);
         die();

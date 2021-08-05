@@ -18,8 +18,6 @@ class ApplyModel
     public string $acceptDescription;
     public string $interviewDate;
 
-    public string $newPassword;
-
     public $page;
     public $limit;
     public $keyword;
@@ -35,6 +33,9 @@ class ApplyModel
                 $this->$property = $value;
             }
         }
+
+        $this->applyDate = datetime();
+        $this->acceptDate = datetime();
     }
 
     public function validateAll()
