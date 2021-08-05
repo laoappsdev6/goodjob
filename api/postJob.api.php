@@ -36,6 +36,9 @@ try {
     } else if ($method == "postJobListAllByCompany") {
         $obj = (object) $json;
         $control->postJobListByCompany($obj);
+    } else if ($method == "postJobListPageByCompany") {
+        $obj = (object) $json;
+        $control->postJobListPageByCompany($obj);
     } else {
         PrintJSON("", "method not found!", 0);
         die();

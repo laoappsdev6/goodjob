@@ -292,4 +292,61 @@ class PostJobController
             PrintJSON("", "$error", 0);
         }
     }
+
+    public function postJobListPageByCompany($get)
+    {
+        try {
+
+            $db = new DatabaseController();
+
+            $sqlCount = "select count(*) as num  from post_job as p INNER JOIN company as c ON p.company_id = c.id where p.company_id='$get->company_id'";
+            $dataCount = $db->query($sqlCount);
+            $numRow = $dataCount[0]['num'];
+
+            if ($numRow > 0) {
+
+                $offset = (($get->page - 1) * $get->limit);
+
+                $sql = "select p.*,c.companyName,c.address from post_job as p INNER JOIN company as c ON p.company_id = c.id where p.company_id='$get->company_id' ";
+
+                if (isset($get->keyword) && !empty($get->keyword)) {
+                    $sql .= " where
+                        c.companyName like '%$get->keyword%' or
+                        c.address like '%$get->keyword%'
+                          ";
+                }
+
+                $sqlPage = " order by p.id desc limit $get->limit offset $offset";
+
+                $data = $db->query($sql . $sqlPage);
+                if ($data) {
+                    for ($i = 0; $i < count($data); $i++) {
+                        $jobId  = $data[$i]['id'];
+                        $sqlDetail = "select d.*,p.position,s.salaryRate,dg.degree,m.major from post_job_detail as d
+                        INNER JOIN position as p ON d.posistion_id = p.id 
+                        INNER JOIN salary_rate as s ON d.salary_id = s.id 
+                        INNER JOIN degree as dg ON d.degree_id = dg.id 
+                        INNER JOIN major as m ON d.major_id = m.id 
+                        where postJob_id = '$jobId'";
+                        $dataDetail = $db->query($sqlDetail);
+
+                        if ($dataDetail) {
+                            $data[$i]['jobDetail'] = $dataDetail;
+                        } else {
+                            $data[$i]['jobDetail'] = [];
+                        }
+                    }
+                }
+                $dataList = $data;
+            } else {
+                $dataList = [];
+            }
+            $dataRes = Pagination($numRow, $dataList, $get->limit, $get->page);
+
+            PrintJSON($dataRes, "Data list page of PostJob", 1);
+        } catch (Exception $e) {
+            $error = $e->getMessage();
+            PrintJSON("", "$error", 0);
+        }
+    }
 }
