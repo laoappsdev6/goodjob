@@ -250,7 +250,7 @@ class PostJobController
             INNER JOIN position as p ON d.posistion_id = p.id 
             INNER JOIN salary_rate as s ON d.salary_id = s.id 
             INNER JOIN degree as dg ON d.degree_id = dg.id 
-            INNER JOIN major as m ON d.major_id = m.id where $get->key like '%$get->value%' ";
+            INNER JOIN major as m ON d.major_id = m.id where $get->key like '%$get->value%' order by d.id desc ";
 
             $dataSearch = $db->query($sqlSearch);
 

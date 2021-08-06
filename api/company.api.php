@@ -4,7 +4,7 @@ require_once "../controllers/company.controller.php";
 require_once "../models/company.model.php";
 
 try {
-    Initialization();
+    // Initialization();
     $method = GetMethod();
 
     $json = json_decode(file_get_contents('php://input'), true);

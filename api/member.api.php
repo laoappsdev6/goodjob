@@ -5,7 +5,7 @@ require_once "../models/member.model.php";
 
 try {
 
-    Initialization();
+    // Initialization();
     $method = GetMethod();
 
     $json = json_decode(file_get_contents('php://input'), true);
