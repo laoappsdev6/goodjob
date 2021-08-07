@@ -14,8 +14,6 @@ class LoginCompanyController
     {
         $db = new DatabaseController();
         $sql = "select * from company where companyPhonenumber='$u->phonenumber' and password='$u->password' and isActive=1 and status='upproved'";
-        echo $sql;
-        die();
         $name = $db->query($sql);
         if ($name > 0) $row = $name[0];
 
