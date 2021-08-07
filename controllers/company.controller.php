@@ -103,9 +103,10 @@ class CompanyController
     }
     public function setDisableAndEnableCompany($u)
     {
+        $active = isset($u->isActive) && !empty($u->isActive) ? $u->isActive : '0';
         try {
             $db = new DatabaseController();
-            $sql = "update company set isActive='$u->isActive' where id='$u->id'";
+            $sql = "update company set isActive='$active' where id='$u->id'";
             $data = $db->query($sql);
             if ($data) {
                 PrintJSON("", "company id: {$u->id} set active successfully", 1);
