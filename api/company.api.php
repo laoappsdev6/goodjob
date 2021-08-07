@@ -4,7 +4,6 @@ require_once "../controllers/company.controller.php";
 require_once "../models/company.model.php";
 
 try {
-    // Initialization();
     $method = GetMethod();
 
     $json = json_decode(file_get_contents('php://input'), true);
@@ -15,28 +14,36 @@ try {
         $model->validateall();
         $control->addCompany($model);
     } else if ($method == "updateCompany") {
+        Initialization();
         $model = new CompanyModel($json);
         $model->validateall();
         $control->updateCompany($model);
     } else if ($method == "deleteCompany") {
+        Initialization();
         $model = new CompanyModel($json);
         $control->deleteCompany($model);
     } else if ($method == "upProveCompany") {
+        Initialization();
         $model = new CompanyModel($json);
         $control->upProveCompany($model);
     } else if ($method == "setDisableAndEnableCompany") {
+        Initialization();
         $model = new CompanyModel($json);
         $control->setDisableAndEnableCompany($model);
     } else if ($method == "changePassword") {
+        Initialization();
         $model = new CompanyModel($json);
         $model->validateNewPassword();
         $control->changePassword($model);
     } else if ($method == "companyListPage") {
+        Initialization();
         $model = new CompanyModel($json);
-        $control->CompanyListPage($model);
+        $control->companyListPage($model);
     } else if ($method == "companyListAll") {
-        $control->CompanyListALL();
+        Initialization();
+        $control->companyListALL();
     } else if ($method == "getCompany") {
+        Initialization();
         $model = new CompanyModel($json);
         $control->getCompany($model);
     } else {
