@@ -4,7 +4,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE");
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept,Token,Method,Authorization");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept,token,method,Authorization");
 
 function PrintJSON($data, $message, $status)
 {
@@ -30,7 +30,7 @@ function Pagination($numRow, $data, $limit,  $page)
 
 function Initialization()
 {
-    $token = isset(getallheaders()['Token']) ? getallheaders()['Token'] : "";
+    $token = isset(getallheaders()['token']) ? getallheaders()['token'] : "";
 
     if (!empty($token) || $token != "") {
         $check = checkToken($token);
@@ -51,7 +51,7 @@ function Initialization()
 
 function GetMethod()
 {
-    return isset(getallheaders()['Method']) ? getallheaders()['Method'] : "";
+    return isset(getallheaders()['method']) ? getallheaders()['method'] : "";
 }
 
 function base64_to_jpeg($base64_string, $output_file)

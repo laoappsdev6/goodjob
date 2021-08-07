@@ -51,8 +51,6 @@ class MemberModel
         switch ($p) {
             case 'memberName':
                 validateEmpty($this->memberName, "memberName is empty!");
-                $sql = "select * from member where memberName='$this->memberName' and id !='$this->id'";
-                validateAlreadyExist($sql, "memberName {$this->memberName} already exists!");
                 break;
             case 'memberLastname':
                 validateEmpty($this->memberLastname, "memberLastname is empty!");
