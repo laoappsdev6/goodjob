@@ -290,7 +290,10 @@ class ApplyController
                         INNER JOIN major as j ON a.major_id = j.id  
                         INNER JOIN post_job_detail as jd ON a.postJobDetail_id = jd.id
                         INNER JOIN post_job as pj ON jd.postJob_id = pj.id
-                        INNER JOIN company as c ON pj.company_id = c.id where pj.company_id = '$get->company_id' and a.status='$get->status'";
+                        INNER JOIN company as c ON pj.company_id = c.id where pj.company_id = '$get->company_id'";
+            if (isset($get->status) && !empty($get->status)) {
+                $sqlCount .= " and a.status='$get->status' ";
+            }
             $dataCount = $db->query($sqlCount);
             $numRow = $dataCount[0]['num'];
 
@@ -306,7 +309,12 @@ class ApplyController
                         INNER JOIN major as j ON a.major_id = j.id  
                         INNER JOIN post_job_detail as jd ON a.postJobDetail_id = jd.id
                         INNER JOIN post_job as pj ON jd.postJob_id = pj.id
-                        INNER JOIN company as c ON pj.company_id = c.id where pj.company_id = '$get->company_id' and a.status='$get->status' ";
+                        INNER JOIN company as c ON pj.company_id = c.id where pj.company_id = '$get->company_id' ";
+
+                if (isset($get->status) && !empty($get->status)) {
+                    $sql .= " and a.status='$get->status' ";
+                }
+
 
                 if (isset($get->keyword) && !empty($get->keyword)) {
                     $sql .= " and (
@@ -316,7 +324,6 @@ class ApplyController
                 }
 
                 $sqlPage = " order by a.id desc limit $get->limit offset $offset";
-
                 $data = $db->query($sql . $sqlPage);
                 $dataList = $data;
             } else {
