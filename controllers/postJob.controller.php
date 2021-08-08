@@ -155,7 +155,7 @@ class PostJobController
     {
         try {
             $db = new DatabaseController();
-            $sql = "select p.*,c.companyName,c.address from post_job as p INNER JOIN company as c ON p.company_id = c.id order by p.id desc";
+            $sql = "select p.*,c.companyName,c.address,c.image,c.companyPhonenumber from post_job as p INNER JOIN company as c ON p.company_id = c.id order by p.id desc";
             $data = $db->query($sql);
             if ($data) {
                 for ($i = 0; $i < count($data); $i++) {
