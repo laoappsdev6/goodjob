@@ -11,11 +11,9 @@ try {
     $data = (object) $json;
 
     if ($method == "countOfAdmin") {
-        $control->dashboardAdminCount($data);
-    } else if ($method == "updateAdmin") {
-        $model = new AdminModel($json);
-        $model->validateall();
-        $control->dashboardAdminCount($data);
+        $control->dashboardAdminCount();
+    } else if ($method == "countOfCompany") {
+        $control->dashboardCompanyCount($data);
     } else {
         PrintJSON("", "method not found!", 0);
         die();
