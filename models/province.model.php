@@ -27,6 +27,6 @@ class ProvinceModel
 
     public function validateProvince()
     {
-        validateEmpty($this->province, "Province name is empty!");
+        validateEmpty($this->province, "ກະລຸນາປ້ອນ ຊື່ແຂວງ!");
     }
 }

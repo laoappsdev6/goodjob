@@ -37,13 +37,13 @@ class LoginController
             $pass = $db->query($sql1);
 
             if ($name == 0 && $pass == 0) {
-                PrintJSON("", "Wrong username and password!!!", 0);
+                PrintJSON("", "ຊື່ຜູ້ໃຊ້ ແລະ ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ!!!", 0);
             } else if ($name > 0 && $pass == 0) {
-                PrintJSON("", "Wrong password!!!", 0);
+                PrintJSON("", "ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ", 0);
             } else if ($name == 0 && $pass > 0) {
-                PrintJSON("", "Wrong username!!!", 0);
+                PrintJSON("", "ຊື່ຜູ້ໃຊ້ບໍ່ຖືກຕ້ອງ", 0);
             } else if ($name > 0 && $pass > 0) {
-                PrintJSON("", "You have no authorize!!!", 0);
+                PrintJSON("", "ທ່ານຍັງບໍ່ໄດ້ຖືກຍອມຮັບເຂົ້າໃຊ້ລະບົບ!!!", 0);
             }
         }
     }

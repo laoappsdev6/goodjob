@@ -20,13 +20,13 @@ class LoginAdminModel
     function validatelogin()
     {
         if ($this->username == "" && $this->password == "") {
-            PrintJSON("", "username and password is empty", 0);
+            PrintJSON("", "ກະລຸນາປ້ອນ ຊື່ ແລະ ລະຫັດຜ່ານ", 0);
             die();
         } else if ($this->username == "") {
-            PrintJSON("", "username is empty ", 0);
+            PrintJSON("", "ກະລຸນາປ້ອນ ຊື່ຜູ້ໃຊ້ ", 0);
             die();
         } elseif ($this->password == "") {
-            PrintJSON("", "password is empty ", 0);
+            PrintJSON("", "ກະລຸນາປ້ອນ ລະຫັດຜ່ານ ", 0);
             die();
         }
     }

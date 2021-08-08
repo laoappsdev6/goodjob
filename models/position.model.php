@@ -27,6 +27,6 @@ class PositionModel
 
     public function validatePosition()
     {
-        validateEmpty($this->position, "Position name is empty!");
+        validateEmpty($this->position, "ກະລຸນາປ້ອນ ຕຳແໜ່ງ!");
     }
 }

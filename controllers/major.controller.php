@@ -16,9 +16,9 @@ class MajorController
             $sql = "insert into major (major) values ('$get->major')";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Add major successfully", 1);
+                PrintJSON("", "ບັນທຶກຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Add major failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດບັນທຶກຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -32,9 +32,9 @@ class MajorController
             $sql = "update major set major='$get->major' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Update major successfully", 1);
+                PrintJSON("", "ແກ້ໄຂຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Update major failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດແກ້ໄຂຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -48,9 +48,9 @@ class MajorController
             $sql = "delete from major where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "major id: {$get->id} delete successfully", 1);
+                PrintJSON("", "ລົບຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Delete major failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດລົບຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();

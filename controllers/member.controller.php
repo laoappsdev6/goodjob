@@ -29,9 +29,9 @@ class MemberController
                  '$get->email','$get->password','$name_image','$get->status','$get->isActive','$nowDate')";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Add member successfully", 1);
+                PrintJSON("", "ບັນທຶກຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Add member failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດບັນທຶກຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -57,9 +57,9 @@ class MemberController
                     dob='$get->dob',phonenumber='$get->phonenumber', email='$get->email',password='$get->password', image='$name_image' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Update member successfully", 1);
+                PrintJSON("", "ແກ້ໄຂຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Update member failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດແກ້ໄຂຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -73,9 +73,9 @@ class MemberController
             $sql = "delete from member where id='$u->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "member id: {$u->id} delete successfully", 1);
+                PrintJSON("", "ລົບຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Delete member failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດລົບຂໍ້ມູນໄດ້", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();

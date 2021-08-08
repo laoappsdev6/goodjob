@@ -20,13 +20,13 @@ class LoginCompanyModel
     function validatelogin()
     {
         if ($this->phonenumber == "" && $this->password == "") {
-            PrintJSON("", "phonenumber and password is empty", 0);
+            PrintJSON("", "ກະລຸນາປ້ອນ ເບີໂທ ແລະ ລະຫັດຜ່ານ", 0);
             die();
         } else if ($this->phonenumber == "") {
-            PrintJSON("", "phonenumber is empty ", 0);
+            PrintJSON("", "ກະລຸນາປ້ອນ ເບີໂທ ", 0);
             die();
         } elseif ($this->password == "") {
-            PrintJSON("", "password is empty ", 0);
+            PrintJSON("", "ກະລຸນາປ້ອນ ລະຫັດຜ່ານ ", 0);
             die();
         }
     }

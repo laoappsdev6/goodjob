@@ -16,9 +16,9 @@ class DistrictController
             $sql = "insert into district (province_id,district) values ('$get->province_id','$get->district')";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Add district successfully", 1);
+                PrintJSON("", "ບັນທຶກຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Add district failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດບັນທຶກຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -32,9 +32,9 @@ class DistrictController
             $sql = "update district set province_id = '$get->province_id', district='$get->district' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Update district successfully", 1);
+                PrintJSON("", "ແກ້ໄຂຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Update district failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດແກ້ໄຂຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -48,9 +48,9 @@ class DistrictController
             $sql = "delete from district where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "district id: {$get->id} delete successfully", 1);
+                PrintJSON("", "ລົບຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Delete district failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດລົບຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();

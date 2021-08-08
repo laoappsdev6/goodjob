@@ -50,13 +50,13 @@ class MemberModel
     {
         switch ($p) {
             case 'memberName':
-                validateEmpty($this->memberName, "memberName is empty!");
+                validateEmpty($this->memberName, "ກະລຸນາປ້ອນ ຊື່ຜູ້ໃຊ້!");
                 break;
             case 'memberLastname':
-                validateEmpty($this->memberLastname, "memberLastname is empty!");
+                validateEmpty($this->memberLastname, "ກະລຸນາປ້ອນ ນາສະກຸນ!");
                 break;
             case 'memberAddress':
-                validateEmpty($this->memberAddress, "memberAddress is empty!");
+                validateEmpty($this->memberAddress, "ກະລຸນາປ້ອນ ທີ່ຢູ່!");
                 break;
             case 'district_id':
                 validateEmpty($this->district_id, "district_id is empty!");
@@ -65,24 +65,24 @@ class MemberModel
                 validateEmpty($this->province_id, "province_id is empty!");
                 break;
             case 'phonenumber':
-                validateEmpty($this->phonenumber, "phonenumber is empty!");
+                validateEmpty($this->phonenumber, "ກະລຸນາປ້ອນ ເບີໂທ!");
                 $sql = "select * from member where phonenumber='$this->phonenumber' and id !='$this->id'";
-                validateAlreadyExist($sql, "phonenumber {$this->phonenumber} already exists!");
+                validateAlreadyExist($sql, "ເບີໂທ {$this->phonenumber} ນີ້ ມີຢູ່ແລ້ວ!");
                 break;
             case 'password':
-                validateEmpty($this->password, "password is empty!");
+                validateEmpty($this->password, "ກະລຸນາ ປ້ອນລະຫັດຜ່ານ!");
                 break;
             case 'gender':
-                validateEmpty($this->gender, "gender is empty!");
+                validateEmpty($this->gender, "ກະລຸນາ ເລືອກເພດ!");
                 break;
             case 'dob':
-                validateEmpty($this->dob, "dob is empty!");
+                validateEmpty($this->dob, "ກະລຸນາ ເລືອກວັນເດືອນປີເກີດ!");
                 break;
         }
     }
 
     public function validateNewPassword()
     {
-        validateEmpty($this->newPassword, "New password is empty!");
+        validateEmpty($this->newPassword, "ກະລຸນາປ້ອນ ລະຫັດຜ່ານໃໝ່!");
     }
 }

@@ -16,9 +16,9 @@ class PositionController
             $sql = "insert into position (position) values ('$get->position')";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Add position successfully", 1);
+                PrintJSON("", "ບັນທຶກຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Add position failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດບັນທຶກຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -32,9 +32,9 @@ class PositionController
             $sql = "update position set position='$get->position' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Update position successfully", 1);
+                PrintJSON("", "ແກ້ໄຂຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Update position failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດແກ້ໄຂຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -48,9 +48,9 @@ class PositionController
             $sql = "delete from position where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "position id: {$get->id} delete successfully", 1);
+                PrintJSON("", "ລົບຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Delete position failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດລົບຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();

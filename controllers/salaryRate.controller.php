@@ -16,9 +16,9 @@ class SalaryRateController
             $sql = "insert into salary_rate (salaryRate) values ('$get->salaryRate')";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Add Salary rate successfully", 1);
+                PrintJSON("", "ບັນທຶກຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Add Salary rate failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດບັນທຶກຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -32,9 +32,9 @@ class SalaryRateController
             $sql = "update salary_rate set salaryRate='$get->salaryRate' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Update Salary rate successfully", 1);
+                PrintJSON("", "ແກ້ໄຂຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Update Salary rate failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດແກ້ໄຂຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -48,9 +48,9 @@ class SalaryRateController
             $sql = "delete from salary_rate where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Salary rate id: {$get->id} delete successfully", 1);
+                PrintJSON("", "ລົບຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Delete Salary rate failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດລົບຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();

@@ -50,10 +50,10 @@ class PostJobController
             $db->query($subsql);
 
             $db->commit();
-            PrintJSON("", "Add PostJob successfully", 1);
+            PrintJSON("", "ບັນທຶກຂໍ້ມູນສຳເລັດ", 1);
         } catch (Exception $e) {
             // $db->rollback();
-            PrintJSON("", "Add PostJob failed!", 0);
+            PrintJSON("", "ບໍ່ສາມາດບັນທຶກຂໍ້ມູນໄດ້!", 0);
         }
     }
     public function updatePostJob($get, $d)
@@ -101,10 +101,10 @@ class PostJobController
             $db->query($subsql);
 
             $db->commit();
-            PrintJSON("", "Update PostJob successfully", 1);
+            PrintJSON("", "ແກ້ໄຂຂໍ້ມູນສຳເລັດ", 1);
         } catch (Exception $e) {
             // $db->rollback();
-            PrintJSON("", "Update PostJob failed!", 0);
+            PrintJSON("", "ບໍ່ສາມາດແກ້ໄຂຂໍ້ມູນໄດ້!", 0);
         }
     }
     public function deletePostJob($get)
@@ -121,10 +121,10 @@ class PostJobController
             $db->query($sql);
 
             $db->commit();
-            PrintJSON("", "Delete PostJob successfully", 1);
+            PrintJSON("", "ລົບຂໍ້ມູນສຳເລັດ", 1);
         } catch (Exception $e) {
             // $db->rollback();
-            PrintJSON("", "Delete PostJob failed!", 0);
+            PrintJSON("", "ບໍ່ສາມາດລົບຂໍ້ມູນໄດ້!", 0);
         }
     }
 

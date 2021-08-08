@@ -18,9 +18,9 @@ class ApplyController
                  '$get->applyDescription','$get->status')";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Add apply successfully", 1);
+                PrintJSON("", "ບັນທຶກຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Add apply failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດບັນທຶກຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -35,9 +35,9 @@ class ApplyController
                     postJobDetail_id='$get->postJobDetail_id',applyDescription='$get->applyDescription' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Update apply successfully", 1);
+                PrintJSON("", "ແກ້ໄຂຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Update apply failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດແກ້ໄຂຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -51,9 +51,9 @@ class ApplyController
             $sql = "delete from apply where id='$u->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "apply id: {$u->id} delete successfully", 1);
+                PrintJSON("", "ລົບຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Delete apply failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດລົບຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -69,9 +69,9 @@ class ApplyController
                     interviewDate='$get->interviewDate',acceptDescription='$get->acceptDescription'  where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "accept apply successfully", 1);
+                PrintJSON("", "ຍອມຮັບສຳເລັດ", 1);
             } else {
-                PrintJSON("", "accept apply failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດຍອມຮັບໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();

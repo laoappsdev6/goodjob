@@ -27,6 +27,6 @@ class MajorModel
 
     public function validateMajor()
     {
-        validateEmpty($this->major, "Major name is empty!");
+        validateEmpty($this->major, "ກະລຸນາປ້ອນ ສາຂາ!");
     }
 }

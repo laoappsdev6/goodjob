@@ -27,6 +27,6 @@ class DegreeModel
 
     public function validateDegree()
     {
-        validateEmpty($this->degree, "degree name is empty!");
+        validateEmpty($this->degree, "ກະລຸນາປ້ອນ ວຸດທິການສຶກສາ!");
     }
 }

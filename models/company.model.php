@@ -49,12 +49,12 @@ class CompanyModel
     {
         switch ($p) {
             case 'companyName':
-                validateEmpty($this->companyName, "companyName is empty!");
+                validateEmpty($this->companyName, "ກະລະນາປ້ອນ ຊື່ບໍລິສັດ!");
                 $sql = "select * from company where companyName='$this->companyName' and id !='$this->id'";
-                validateAlreadyExist($sql, "companyName {$this->companyName} already exists!");
+                validateAlreadyExist($sql, "ຊື່ບໍລິສັດ {$this->companyName} ນີ້ ມີຢູ່ແລ້ວ!");
                 break;
             case 'address':
-                validateEmpty($this->address, "address is empty!");
+                validateEmpty($this->address, "ກະລະນາປ້ອນ ທີ່ຢູ່້!");
                 break;
             case 'district_id':
                 validateEmpty($this->district_id, "district_id is empty!");
@@ -63,24 +63,24 @@ class CompanyModel
                 validateEmpty($this->province_id, "province_id is empty!");
                 break;
             case 'companyPhonenumber':
-                validateEmpty($this->companyPhonenumber, "companyPhonenumber is empty!");
+                validateEmpty($this->companyPhonenumber, "ກະລະນາປ້ອນ ເບິໂທລະສັບ!");
                 $sql = "select * from company where companyPhonenumber='$this->companyPhonenumber' and id !='$this->id'";
-                validateAlreadyExist($sql, "companyPhonenumber {$this->companyPhonenumber} already exists!");
+                validateAlreadyExist($sql, "ເບີໂທ {$this->companyPhonenumber} ນີ້ ມີແລ້ວ!");
                 break;
             case 'companyContactInfo':
-                validateEmpty($this->companyContactInfo, "companyContactInfo is empty!");
+                validateEmpty($this->companyContactInfo, "ກະລະນາປ້ອນ ຂໍ້ມູນຕິດຕໍ່!");
                 break;
             case 'coordinatorPhonenumber':
-                validateEmpty($this->coordinatorPhonenumber, "coordinatorPhonenumber is empty!");
+                validateEmpty($this->coordinatorPhonenumber, "ກະລະນາປ້ອນ ເບີໂທ!");
                 break;
             case 'password':
-                validateEmpty($this->password, "password is empty!");
+                validateEmpty($this->password, "ກະລະນາປ້ອນ ລະຫັດຜ່ານ!");
                 break;
         }
     }
 
     public function validateNewPassword()
     {
-        validateEmpty($this->newPassword, "New password is empty!");
+        validateEmpty($this->newPassword, "ກະລຸນາປ້ອນ ລະຫັດຜ່ານໃໝ່!");
     }
 }

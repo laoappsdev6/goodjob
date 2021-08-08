@@ -44,30 +44,30 @@ class AdminModel
     {
         switch ($p) {
             case 'name':
-                validateEmpty($this->name, "name is empty!");
+                validateEmpty($this->name, "ກະລຸນາປ້ອນ ຊື່ຜູ້ໃຊ້!");
                 break;
             case 'lastname':
-                validateEmpty($this->lastname, "lastname is empty!");
+                validateEmpty($this->lastname, "ກະລຸນາປ້ອນ ນາມສະກຸນຜູ້ໃຊ້!");
                 break;
             case 'username':
-                validateEmpty($this->username, "Username is empty!");
+                validateEmpty($this->username, "ກະລຸນາປ້ອນຊື່ຜູ້ໃຊ້!");
                 $sql = "select * from admin where username='$this->username' and id !='$this->id'";
-                validateAlreadyExist($sql, "Username {$this->username} already exists!");
+                validateAlreadyExist($sql, "ຊື່ຜູ້ໃຊ້ {$this->username} ນີ້ ມີແລ້ວ!");
                 break;
             case 'password':
-                validateEmpty($this->password, "Password is empty!");
+                validateEmpty($this->password, "ກະລະນາປ້ອນ ລະຫັດຜ່ານ!");
                 break;
             case 'address':
-                validateEmpty($this->address, "address is empty!");
+                validateEmpty($this->address, "ກະລະນາປ້ອນສ ທີ່ຢູ່!");
                 break;
             case 'phonenumber':
-                validateEmpty($this->phonenumber, "phonenumber is empty!");
+                validateEmpty($this->phonenumber, "ກະລະນາປ້ອນ ເບີໂທ!");
                 break;
         }
     }
 
     public function validateNewPassword()
     {
-        validateEmpty($this->newPassword, "New password is empty!");
+        validateEmpty($this->newPassword, "ກະລະນາປ້ອນ ລະຫັດຜ່ານໃໝ່!");
     }
 }

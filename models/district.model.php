@@ -28,6 +28,6 @@ class DistrictModel
 
     public function validateDistrict()
     {
-        validateEmpty($this->district, "District name is empty!");
+        validateEmpty($this->district, "ກະລຸນາປ້ອນ ຊື່ເມືອງ!");
     }
 }

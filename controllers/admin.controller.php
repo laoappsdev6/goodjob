@@ -17,9 +17,9 @@ class AdminController
                  values ('$get->name', '$get->lastname', '$get->username','$get->password','$get->address','$get->phonenumber','$get->email')";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Add admin successfully", 1);
+                PrintJSON("", "ບັນທຶກຂໍ້ມູນ ແອັດມິນ ສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Add admin failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດບັນທຶກຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -33,9 +33,9 @@ class AdminController
             $sql = "update admin set name='$get->name',lastname='$get->lastname', username='$get->username',password='$get->password',address='$get->address',phonenumber='$get->phonenumber',email='$get->phonenumber' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Update admin successfully", 1);
+                PrintJSON("", "ແກ້ໄຂຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Update admin failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດແກ້ໄຂໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -49,9 +49,9 @@ class AdminController
             $sql = "delete from admin where id='$u->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "admin id: {$u->id} delete successfully", 1);
+                PrintJSON("", "ລົບຂໍ້ມູນສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Delete admin failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດລົບຂໍ້ມູນໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -65,9 +65,9 @@ class AdminController
             $sql = "update admin set password='$u->newPassword' where id='$u->id'";
             $data = $db->query($sql);
             if ($data) {
-                PrintJSON("", "Change password successfully", 1);
+                PrintJSON("", "ປ່ຽນລະຫັດຜ່ານສຳເລັດ", 1);
             } else {
-                PrintJSON("", "Change password failed!", 0);
+                PrintJSON("", "ບໍ່ສາມາດປ່ຽນລະຫັດຜ່ານໄດ້!", 0);
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
