@@ -255,4 +255,80 @@ class ApplyController
             PrintJSON("", "$error", 0);
         }
     }
+
+    public function applyListAllByPostJobDetailAndStatus($get)
+    {
+        try {
+            $db = new DatabaseController();
+            $sql = "select a.*,m.memberName,m.memberLastname,m.gender,m.phonenumber as memberPhonenumber,m.memberAddress,d.degree,j.major,
+                    jd.jobName,jd.description as jobDescription,c.companyName,c.address as companyAddress
+                    from apply as a 
+                    INNER JOIN member as m ON a.member_id = m.id
+                    INNER JOIN degree as d ON a.degree_id = d.id
+                    INNER JOIN major as j ON a.major_id = j.id  
+                    INNER JOIN post_job_detail as jd ON a.postJobDetail_id = jd.id
+                    INNER JOIN post_job as pj ON jd.postJob_id = pj.id
+                    INNER JOIN company as c ON pj.company_id = c.id where a.postJobDetail_id = '$get->postJobDetail_id' and a.status='$get->status' order by a.id desc";
+            $data = $db->query($sql);
+            PrintJSON($data, "Data list all of apply", 1);
+        } catch (Exception $e) {
+            $error = $e->getMessage();
+            PrintJSON("", "$error", 0);
+        }
+    }
+
+    public function applyListAllByCompanyAndStatus($get)
+    {
+
+        try {
+
+            $db = new DatabaseController();
+
+            $sqlCount = "select count(*) as num from apply as a 
+                        INNER JOIN member as m ON a.member_id = m.id
+                        INNER JOIN degree as d ON a.degree_id = d.id
+                        INNER JOIN major as j ON a.major_id = j.id  
+                        INNER JOIN post_job_detail as jd ON a.postJobDetail_id = jd.id
+                        INNER JOIN post_job as pj ON jd.postJob_id = pj.id
+                        INNER JOIN company as c ON pj.company_id = c.id where pj.company_id = '$get->company_id' and a.status='$get->status'";
+            $dataCount = $db->query($sqlCount);
+            $numRow = $dataCount[0]['num'];
+
+            if ($numRow > 0) {
+
+                $offset = (($get->page - 1) * $get->limit);
+
+                $sql = "select a.*,m.memberName,m.memberLastname,m.gender,m.phonenumber as memberPhonenumber,m.memberAddress,d.degree,j.major,
+                        jd.jobName,jd.description as jobDescription,c.companyName,c.address as companyAddress
+                        from apply as a 
+                        INNER JOIN member as m ON a.member_id = m.id
+                        INNER JOIN degree as d ON a.degree_id = d.id
+                        INNER JOIN major as j ON a.major_id = j.id  
+                        INNER JOIN post_job_detail as jd ON a.postJobDetail_id = jd.id
+                        INNER JOIN post_job as pj ON jd.postJob_id = pj.id
+                        INNER JOIN company as c ON pj.company_id = c.id where pj.company_id = '$get->company_id' and a.status='$get->status' ";
+
+                if (isset($get->keyword) && !empty($get->keyword)) {
+                    $sql .= " and (
+                            jd.jobName like '%$get->keyword%' or
+                            m.memberName like '%$get->keyword%' )
+                          ";
+                }
+
+                $sqlPage = " order by a.id desc limit $get->limit offset $offset";
+
+                $data = $db->query($sql . $sqlPage);
+                $dataList = $data;
+            } else {
+                $dataList = [];
+            }
+
+            $dataRes = Pagination($numRow, $dataList, $get->limit, $get->page);
+
+            PrintJSON($dataRes, "Data list page of apply", 1);
+        } catch (Exception $e) {
+            $error = $e->getMessage();
+            PrintJSON("", "$error", 0);
+        }
+    }
 }

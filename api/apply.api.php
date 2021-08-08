@@ -44,6 +44,12 @@ try {
     } else if ($method == "applyListAllByPostJobDetail") {
         $model = (object) $json;
         $control->applyListAllByPostJobDetail($model);
+    } else if ($method == "applyListAllByPostJobDetailAndStatus") {
+        $model = (object) $json;
+        $control->applyListAllByPostJobDetailAndStatus($model);
+    } else if ($method == "applyListPageByCompanyAndStatus") {
+        $model = (object) $json;
+        $control->applyListAllByCompanyAndStatus($model);
     } else {
         PrintJSON("", "method not found!", 0);
         die();
