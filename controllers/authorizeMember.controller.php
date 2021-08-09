@@ -29,7 +29,6 @@ class LoginMemberController
                 'data' => $list[0],
             ));
         } else {
-
             $sql = "select * from member where phonenumber='$u->phonenumber'";
             $name = $db->query($sql);
 
@@ -38,11 +37,11 @@ class LoginMemberController
 
             if ($name == 0 && $pass == 0) {
                 PrintJSON("", "ເບີໂທ ແລະ ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ!!!", 0);
-            } else if ($name > 0 && $pass == 0) {
+            } elseif ($name > 0 && $pass == 0) {
                 PrintJSON("", "ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ", 0);
-            } else if ($name == 0 && $pass > 0) {
+            } elseif ($name == 0 && $pass > 0) {
                 PrintJSON("", "ເບີໂທ ບໍ່ຖືກຕ້ອງ!!!", 0);
-            } else if ($name > 0 && $pass > 0) {
+            } elseif ($name > 0 && $pass > 0) {
                 PrintJSON("", "ທ່ານຍັງບໍ່ໄດ້ຖືກຍອມຮັບເຂົ້າໃຊ້ລະບົບ!!!", 0);
             }
         }

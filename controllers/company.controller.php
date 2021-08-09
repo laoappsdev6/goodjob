@@ -18,7 +18,7 @@ class CompanyController
                 $type = explode('/', explode(';', $get->image)[0])[1];
                 $p = preg_replace('#^data:image/\w+;base64,#i', '', $get->image);
                 $name_image = "company-$get->companyName-address-$get->address.$type";
-                $name = MY_PATH . $name_image;
+                $name = imagePath . $name_image;
                 base64_to_jpeg($p, $name);
             } else {
                 $name_image = "";
@@ -47,7 +47,7 @@ class CompanyController
                 $type = explode('/', explode(';', $get->image)[0])[1];
                 $p = preg_replace('#^data:image/\w+;base64,#i', '', $get->image);
                 $name_image = "company-$get->companyName-address-$get->address.$type";
-                $name = MY_PATH . $name_image;
+                $name = imagePath . $name_image;
                 base64_to_jpeg($p, $name);
             } else {
                 $name_image = "";

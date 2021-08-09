@@ -17,7 +17,7 @@ class MemberController
                 $type = explode('/', explode(';', $get->image)[0])[1];
                 $p = preg_replace('#^data:image/\w+;base64,#i', '', $get->image);
                 $name_image = "member-$get->memberName-address-$get->memberAddress-dob-$get->dob.$type";
-                $name = MY_PATH . $name_image;
+                $name = imagePath . $name_image;
                 base64_to_jpeg($p, $name);
             } else {
                 $name_image = "";
@@ -46,7 +46,7 @@ class MemberController
                 $type = explode('/', explode(';', $get->image)[0])[1];
                 $p = preg_replace('#^data:image/\w+;base64,#i', '', $get->image);
                 $name_image = "member-$get->memberName-address-$get->memberAddress-dob-$get->dob.$type";
-                $name = MY_PATH . $name_image;
+                $name = imagePath . $name_image;
                 base64_to_jpeg($p, $name);
             } else {
                 $name_image = "";

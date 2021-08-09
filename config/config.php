@@ -1,5 +1,6 @@
 <?php
-define("MY_PATH", "../image/");
+define("imagePath", "../image/");
+
 define("dbhost", "localhost");
 define("dbuser", "root");
 // define("dbpass", "");

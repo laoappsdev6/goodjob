@@ -21,7 +21,7 @@ class PostJobController
                 $type = explode('/', explode(';', $get->fileForm)[0])[1];
                 $p = preg_replace('#^data:application/\w+;base64,#i', '', $get->fileForm);
                 $nameFile = "company-id-$get->company_id-number-$number.$type";
-                $name = MY_PATH . $nameFile;
+                $name = imagePath . $nameFile;
                 base64_to_jpeg($p, $name);
             } else {
                 $nameFile = "";
@@ -69,7 +69,7 @@ class PostJobController
                 $type = explode('/', explode(';', $get->fileForm)[0])[1];
                 $p = preg_replace('#^data:application/\w+;base64,#i', '', $get->fileForm);
                 $nameFile = "company-id-$get->company_id-number-$number.$type";
-                $name = MY_PATH . $nameFile;
+                $name = imagePath . $nameFile;
                 base64_to_jpeg($p, $name);
             } else {
                 $nameFile = "";
