@@ -53,7 +53,7 @@ class MemberController
             }
 
             $db = new DatabaseController();
-            $sql = "update member set memberName='$get->memberName',memberLastname='$get->memberLastname',district_id='$get->district_id',province_id='$get->province_id',gender='$get->gender',
+            $sql = "update member set memberName='$get->memberName',memberLastname='$get->memberLastname',memberAddress='$get->memberAddress',district_id='$get->district_id',province_id='$get->province_id',gender='$get->gender',
                     dob='$get->dob',phonenumber='$get->phonenumber', email='$get->email',password='$get->password', image='$name_image' where id='$get->id'";
             $data = $db->query($sql);
             if ($data) {
