@@ -13,10 +13,11 @@ class MemberController
     {
         try {
             $nowDate = datetime();
+            $dateInt = strtotime($nowDate);
             if (isset($get->image) && !empty($get->image)) {
                 $type = explode('/', explode(';', $get->image)[0])[1];
                 $p = preg_replace('#^data:image/\w+;base64,#i', '', $get->image);
-                $name_image = "member-$get->memberName-address-$get->memberAddress-dob-$get->dob.$type";
+                $name_image = "member-$get->memberName-dob-$get->dob-create-$dateInt.$type";
                 $name = imagePath . $name_image;
                 base64_to_jpeg($p, $name);
             } else {
@@ -41,11 +42,13 @@ class MemberController
     public function updateMember($get)
     {
         try {
+            $nowDate = datetime();
+            $dateInt = strtotime($nowDate);
 
             if (isset($get->image) && !empty($get->image)) {
                 $type = explode('/', explode(';', $get->image)[0])[1];
                 $p = preg_replace('#^data:image/\w+;base64,#i', '', $get->image);
-                $name_image = "member-$get->memberName-address-$get->memberAddress-dob-$get->dob.$type";
+                $name_image = "member-$get->memberName-dob-$get->dob-update-$dateInt.$type";
                 $name = imagePath . $name_image;
                 base64_to_jpeg($p, $name);
             } else {
