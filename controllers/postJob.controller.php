@@ -244,12 +244,14 @@ class PostJobController
         try {
             $db = new DatabaseController();
 
-            $sqlSearch = "select d.*,j.*,c.companyName,c.address,p.position,s.salaryRate,dg.degree,m.major from post_job_detail as d 
+            $sqlSearch = "select d.*,j.*,c.companyName,c.address,p.position,s.salaryRate,dg.degree,m.major,pv.province,ds.district from post_job_detail as d 
             INNER JOIN post_job as j ON d.postJob_id = j.id 
             INNER JOIN company as c ON j.company_id = c.id 
             INNER JOIN position as p ON d.posistion_id = p.id 
             INNER JOIN salary_rate as s ON d.salary_id = s.id 
-            INNER JOIN degree as dg ON d.degree_id = dg.id 
+            INNER JOIN degree as dg ON d.degree_id = dg.id
+            INNER JOIN province as pv ON c.province_id = pv.id 
+            INNER JOIN district as ds ON c.district_id = ds.id
             INNER JOIN major as m ON d.major_id = m.id where $get->key like '%$get->value%' order by d.id desc ";
 
             $dataSearch = $db->query($sqlSearch);
