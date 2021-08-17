@@ -140,8 +140,8 @@ class ApplyController
 
                 $offset = (($get->page - 1) * $get->limit);
 
-                $sql = "select a.*,m.memberName,m.memberLastname,m.gender,d.degree,j.major,
-                jd.jobName,jd.description as jobDescription,c.companyName,c.address
+                $sql = "select a.*,m.memberName,m.memberLastname,m.gender,m.phonenumber as memberPhonenumber,m.memberAddress,d.degree,j.major,
+                jd.jobName,jd.description as jobDescription,c.companyName,c.address as companyAddress
                 from apply as a 
                 INNER JOIN member as m ON a.member_id = m.id
                 INNER JOIN degree as d ON a.degree_id = d.id
