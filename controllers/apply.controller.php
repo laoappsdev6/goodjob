@@ -159,8 +159,6 @@ class ApplyController
 
                 $sqlPage = " order by a.id desc limit $get->limit offset $offset";
 
-                echo $sql . $sqlPage;
-                die();
                 $data = $db->query($sql . $sqlPage);
                 $dataList = $data;
             } else {
